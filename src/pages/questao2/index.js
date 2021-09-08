@@ -46,7 +46,7 @@ function Questao2() {
   return (
     <>
       <div>
-        <h1 className="titulo-questao">Fomulário</h1>
+        <h1 className="titulo-questao">Formulário</h1>
       </div>
       <form onSubmit={
         (e) => {

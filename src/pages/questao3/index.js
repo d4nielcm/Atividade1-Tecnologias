@@ -3,9 +3,21 @@ import { Col, Row, Container } from 'react-bootstrap';
 
 function Questao3() {
   const resultadoText = useRef(null);
- 
+
+  function verificarBtn(e) {
+    if (resultadoText.current.value !== "0") {
+
+      if (
+        ['x', '/', '+', '-'].some(v => resultadoText.current.value.charAt(resultadoText.current.value.length - 1).includes(v))
+      ) {
+        resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+      } else {
+        resultadoText.current.value += e.currentTarget.value;
+      }
+    }
+  }
   function apagarTudo() {
-    resultadoText.current.value = "";
+    resultadoText.current.value = "0";
   }
   function igualOp() {
     if (['x', '/', '+', '-'].some(v => resultadoText.current.value.charAt(resultadoText.current.value.length - 1).includes(v))){
@@ -38,7 +50,7 @@ function Questao3() {
             borderRadius: '15px'
           }}>
             <Col>
-              <input ref={resultadoText} style={{ marginTop: '20px' }} className="form-control" disabled type="text" />
+              <input defaultValue="0" ref={resultadoText} style={{ marginTop: '20px', textAlign: 'end' }} className="form-control" disabled type="text" />
             </Col>
             <div className="btnCol">
               <button
@@ -52,14 +64,7 @@ function Questao3() {
               <button
                 title="Dividir"
                 className="btn btn-outline-info btn-op"
-                onClick={
-                  (e) => {
-                    if (['x', '/', '+', '-'].some(v => resultadoText.current.value.charAt(resultadoText.current.value.length - 1).includes(v))) {
-                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
-                    }
-                    resultadoText.current.value += e.currentTarget.value;
-                  }
-                }
+                onClick={(e) => verificarBtn(e)}
                 value="/"
                 type="button">
                 /
@@ -67,14 +72,7 @@ function Questao3() {
               <button
                 title="Multiplicar"
                 className="btn btn-outline-info btn-op"
-                onClick={
-                  (e) => {
-                    if (['x', '/', '+', '-'].some(v => resultadoText.current.value.charAt(resultadoText.current.value.length - 1).includes(v))) {
-                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
-                    }
-                    resultadoText.current.value += e.currentTarget.value;
-                  }
-                }
+                onClick={(e) => verificarBtn(e)}
                 value="x"
                 type="button">
                 X
@@ -90,7 +88,13 @@ function Questao3() {
               <button
                 title="7"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="7"
                 type="button">
                 7
@@ -98,7 +102,13 @@ function Questao3() {
               <button
                 title="8"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="8"
                 type="button">
                 8
@@ -106,7 +116,13 @@ function Questao3() {
               <button
                 title="9"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="9"
                 type="button">
                 9
@@ -114,14 +130,7 @@ function Questao3() {
               <button
                 title="Somar"
                 className="btn btn-outline-info btn-op"
-                onClick={
-                  (e) => {
-                    if (['x', '/', '+', '-'].some(v => resultadoText.current.value.charAt(resultadoText.current.value.length - 1).includes(v))) {
-                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
-                    }
-                    resultadoText.current.value += e.currentTarget.value;
-                  }
-                }
+                onClick={(e) => verificarBtn(e)}
                 value="+"
                 type="button">
                 +
@@ -129,7 +138,13 @@ function Questao3() {
               <button
                 title="4"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="4"
                 type="button">
                 4
@@ -137,7 +152,13 @@ function Questao3() {
               <button
                 title="5"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="5"
                 type="button">
                 5
@@ -145,7 +166,13 @@ function Questao3() {
               <button
                 title="6"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="6"
                 type="button">
                 6
@@ -153,14 +180,7 @@ function Questao3() {
               <button
                 title="Subtrair"
                 className="btn btn-outline-info btn-op"
-                onClick={
-                  (e) => {
-                    if (['x', '/', '+', '-'].some(v => resultadoText.current.value.charAt(resultadoText.current.value.length - 1).includes(v))) {
-                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
-                    }
-                    resultadoText.current.value += e.currentTarget.value;
-                  }
-                }
+                onClick={(e) => verificarBtn(e)}
                 value="-"
                 type="button">
                 -
@@ -168,7 +188,13 @@ function Questao3() {
               <button
                 title="1"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="1"
                 type="button">
                 1
@@ -176,7 +202,13 @@ function Questao3() {
               <button
                 title="2"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="2"
                 type="button">
                 2
@@ -184,7 +216,13 @@ function Questao3() {
               <button
                 title="3"
                 className="btn btn-outline-info btn-op"
-                onClick={(e) => resultadoText.current.value += e.currentTarget.value}
+                onClick={(e) => {
+                    if (resultadoText.current.value === "0") {
+                      resultadoText.current.value = resultadoText.current.value.slice(0, -1);
+                    } 
+                    resultadoText.current.value += e.currentTarget.value
+                  }
+                }
                 value="3"
                 type="button">
                 3
